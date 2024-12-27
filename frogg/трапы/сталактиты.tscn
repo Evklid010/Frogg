@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhptldbw5jtbt"]
+
+[ext_resource type="Script" path="res://трапы/сталактиты.gd" id="1_l8g1d"]
+[ext_resource type="Texture2D" uid="uid://cwdaegirm5bay" path="res://Free/Traps/Spikes/Idle.png" id="2_vr6mu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfgr0"]
+size = Vector2(26, 21)
+
+[node name="Сталактиты" type="Node2D"]
+script = ExtResource("1_l8g1d")
+
+[node name="Idle2" type="Sprite2D" parent="."]
+position = Vector2(-1.49012e-08, -9.53674e-07)
+scale = Vector2(1.97084, -3.03886)
+texture = ExtResource("2_vr6mu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -13.5)
+shape = SubResource("RectangleShape2D_jfgr0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

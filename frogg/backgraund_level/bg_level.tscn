@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://deofvqvlmhrsa"]
+
+[ext_resource type="VideoStream" path="res://backgraund_level/vecteezy_binary-code-with-numbers-moving-downward-on-screen_2015336.ogv" id="2_r3wbf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="TextureRect"]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+stream = ExtResource("2_r3wbf")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true

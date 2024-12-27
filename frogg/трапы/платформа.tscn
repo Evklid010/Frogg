@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://du32dgdwsu5aa"]
+
+[ext_resource type="Texture2D" uid="uid://ca8vs8o4f7gf" path="res://Free/Background/Green.png" id="1_cccrd"]
+[ext_resource type="Script" path="res://трапы/платформа.gd" id="1_ttm5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbwbs"]
+size = Vector2(96, 15)
+
+[node name="Path2D" type="Path2D"]
+script = ExtResource("1_ttm5w")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-1, 1)
+rotation = 1.5708
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+position = Vector2(0, -1)
+remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(0, 1)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_sbwbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(1, 0)
+scale = Vector2(1.50391, 0.242188)
+texture = ExtResource("1_cccrd")
